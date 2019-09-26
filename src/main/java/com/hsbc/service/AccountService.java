@@ -32,16 +32,8 @@ public class AccountService {
         return null;
     }
 
-    public Account getAccountDetails(Long custId) {
-        return accountRepository.findByCustId(custId);
-    }
-
-    public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
-    }
-
     @Transactional
-    public String createTransaction(Transaction transaction) {
+    public boolean createTransaction(Transaction transaction) {
         Account account = accountRepository.findById(transaction.getAccountId()).get();
         if(account != null) {
             Double balanceAfterTxn=0.0;
@@ -59,9 +51,9 @@ public class AccountService {
             accountTransactionRepository.save(accountTransaction);
             account.setBalance(balanceAfterTxn);
             accountRepository.save(account);
-            return "Transaction completed successfully";
+            return true;
         }
-        return "Account doesn't exist";
+        return false;
     }
 
     public Account getAccountDetailsByAccountId(Long accountId) {
