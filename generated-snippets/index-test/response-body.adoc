@@ -1,0 +1,8 @@
+[source,options="nowrap"]
+----
+{
+  "exception" : "URI must not be null",
+  "errorCode" : "BAD_REQUEST",
+  "date" : "2019-09-27"
+}
+----

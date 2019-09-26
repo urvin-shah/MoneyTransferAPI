@@ -16,6 +16,7 @@ public class GlobalException {
         ExceptionMessage exceptionMessage = new ExceptionMessage(ex.getMessage(), HttpStatus.BAD_REQUEST, LocalDate.now());
         return new ResponseEntity(exceptionMessage,  HttpStatus.BAD_REQUEST);
     }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity exception(RuntimeException ex, WebRequest request){
         ExceptionMessage exceptionMessage = new ExceptionMessage(ex.getMessage(), HttpStatus.BAD_REQUEST, LocalDate.now());
