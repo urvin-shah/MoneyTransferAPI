@@ -18,8 +18,4 @@ public class CustomerService {
         customer.setCustomerName(custName);
         return customerRepository.save(customer);
     }
-
-    public List<Customer> getAllCustomers() {
-        return customerRepository.findAll();
-    }
 }
